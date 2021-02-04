@@ -1,0 +1,64 @@
+﻿<Window x:Class="WpfAppDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppDemo"
+        xmlns:WpfAppDemo="clr-namespace:WpfAppDemo.Controls" xmlns:converters="clr-namespace:WpfAppDemo.Helpers.Converters"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <converters:Converter_Class2dToBool x:Key="ConverterClass2dToBool"/>
+        <converters:Converter_Class3dToBool x:Key="ConverterClass3dToBool"/>
+
+    </Window.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="4"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button Width="150"
+                    HorizontalAlignment="Left"
+                    Margin="2,2,2,0"
+                    Content="Добавить 2D"
+                    Command="{Binding ButtonClick_AddTabItemViewModel_2D_Command}"/>
+                <Button Width="150"
+                    HorizontalAlignment="Left"
+                    Margin="2,2,2,0"
+                    Content="Добавить 3D"
+                    Command="{Binding ButtonClick_AddTabItemViewModel_3D_Command}"/>
+            </StackPanel>
+            
+            <TabControl Grid.Row="2"
+                ItemsSource="{Binding TabItemViewModels}"
+                SelectedItem="{Binding SelectedItem}">
+                
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <HeaderedContentControl Header="{Binding Name}"/>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <ContentControl>
+                            <Grid>
+                                <TextBlock Text="2D контрол - демонстрация"
+                                    Visibility="{Binding DataContext, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource ConverterClass2dToBool}}"/>
+                                <TextBlock Text="3D контрол - демонстрация"
+                                    Visibility="{Binding DataContext, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource ConverterClass3dToBool}}"/>
+                            </Grid>
+                        </ContentControl>
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>
