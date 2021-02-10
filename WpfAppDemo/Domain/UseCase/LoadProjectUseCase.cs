@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfAppDemo.DAL;
 
-namespace WpfAppDemo.Appl
+namespace WpfAppDemo.Domain
 {
     class LoadProjectUseCase
     {

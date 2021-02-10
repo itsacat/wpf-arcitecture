@@ -55,13 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Appl\AddPointUseCase.cs" />
-    <Compile Include="Appl\LoadProjectUseCase.cs" />
+    <Compile Include="DAL\PointRepository.cs" />
+    <Compile Include="Domain\UseCase\AddPointUseCase.cs" />
+    <Compile Include="Domain\UseCase\LoadProjectUseCase.cs" />
     <Compile Include="DAL\ProjectRepository.cs" />
     <Compile Include="DAL\PointsRepository.cs" />
-    <Compile Include="Domain\Project.cs" />
-    <Compile Include="Domain\Point.cs" />
-    <Compile Include="Domain\Points.cs" />
+    <Compile Include="Domain\DomainServices\PointsSumService.cs" />
+    <Compile Include="Domain\Entity\Accessory\PointsAccessory.cs" />
+    <Compile Include="Domain\Entity\Project.cs" />
+    <Compile Include="Domain\Entity\Point.cs" />
+    <Compile Include="Domain\Entity\Points.cs" />
     <Compile Include="_Legacy\Helpers\Converters\Converter_Class2dToBool.cs" />
     <Compile Include="_Legacy\Helpers\Converters\Converter_Class3dToBool.cs" />
     <Compile Include="_Legacy\ViewModels\TabItemViewModels\AbstractClasses\ATabItemViewModel.cs" />

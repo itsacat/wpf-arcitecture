@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using GeneralClassLibrary;
 using System.Collections.ObjectModel;
+using WpfAppDemo.Domain.Entity.Accessory;
 
 namespace WpfAppDemo.Domain
 {
     class Points : ObservableCollection<Point>
     {
+        public string id;
+        public readonly PointsAccessory accessory;
+
         public List<Point> List 
         { get { return points; } }
 
@@ -18,10 +22,12 @@ namespace WpfAppDemo.Domain
         public Points(List<Point> Points)
         {
             points = Points;
+            accessory = new PointsAccessory();
         }
 
-        public void AddPoint(Point Point)
+        internal void AddPoint(Point Point)
         {
+            Point.X = 1;
             if (List.Count > 10)
             {
                 throw new Exception();

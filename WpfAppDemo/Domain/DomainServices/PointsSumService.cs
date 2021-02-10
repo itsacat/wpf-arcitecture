@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WpfAppDemo.Domain;
 
-namespace WpfAppDemo.DAL
+namespace WpfAppDemo.Domain
 {
-    class PointsRepository
+    class PointsSumService
     {
-        public static void Save(Points Points) { }
-        public static Points Load(int id)
-        {
+        internal static Points Sum(Points Point1, Points Point2) {
             var list = new List<Point>();
             list.Add(new Point(1, 1));
             list.Add(new Point(2, 2));
